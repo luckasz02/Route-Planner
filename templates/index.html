@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Route Planner</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>A.S.C.G</h1>
+      <canvas
+        id="graphCanvas"
+        width="500"
+        height="400"
+        style="border: 1px solid black"
+      ></canvas>
+      <form id="routeForm">
+        <label for="start">Start Node:</label>
+        <input type="text" id="start" name="start" readonly /><br /><br />
+        <label for="end">End Node:</label>
+        <input type="text" id="end" name="end" readonly /><br /><br />
+        <select name="algorithm" id="algorithm">
+          <option value="a_star">A*</option>
+          <option value="bidirectional_dijkstra">Bidirectional Dijkstra</option>
+          <option value="bellman_ford">Bellman-Ford</option></select
+        ><br /><br />
+        <input type="submit" value="Find Route" />
+      </form>
+      <div id="result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
